@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+    ui:
+        build:
+            dockerfile: docker/Dockerfile-Ui
+            context: ""
+        ports:
+            - "3000:3000"
+        container_name: "websiteUi"
+        networks:
+            kolschnet:
+                aliases:
+                    - websiteUi
+        restart: always
+
+networks:
+    kolschnet:
+        external:
+            name: kolschnet
