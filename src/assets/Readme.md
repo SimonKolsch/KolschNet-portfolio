@@ -1,0 +1,1 @@
+IMG, SVG, Brands, Icons, Avatar
