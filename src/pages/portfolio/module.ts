@@ -12,24 +12,29 @@ export function portfolioLoader({ request, params }: LoaderFunctionArgs) {
         type: ItemType.LinkItem,
         linkItem: {
           title: "LinkItem 1",
+          to: "me",
+          tooltip: "Hello There!",
         },
       },
       {
         type: ItemType.LinkItem,
         linkItem: {
           title: "LinkItem 2",
+          to: "",
         },
       },
       {
         type: ItemType.LinkItem,
         linkItem: {
           title: "LinkItem 3",
+          to: "",
         },
       },
       {
         type: ItemType.LinkItem,
         linkItem: {
           title: "LinkItem 4",
+          to: "",
         },
       },
     ],

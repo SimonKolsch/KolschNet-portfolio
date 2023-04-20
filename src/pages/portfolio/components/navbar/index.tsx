@@ -1,15 +1,19 @@
 import React from "react";
-import { Box, createStyles, Navbar as MantineNavbar } from "@mantine/core";
+import { createStyles, Navbar as MantineNavbar } from "@mantine/core";
 import { ItemProps, ItemType, NavbarProps } from "./module";
 import { LinkItem } from "./link";
 
 export * from "./module";
 export * from "./link";
 
-const useStyles = createStyles((theme) => ({}));
+const useStyles = createStyles((theme) => ({
+  navbar: {
+    margin: `${theme.spacing.md} 0`,
+  },
+}));
 
 export const Navbar: React.FC<NavbarProps> = ({ opened, items }) => {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   const navbar = items.map((navItem) => {
     return getNavItem(navItem);
@@ -20,15 +24,11 @@ export const Navbar: React.FC<NavbarProps> = ({ opened, items }) => {
       <MantineNavbar
         hiddenBreakpoint="sm"
         hidden={!opened}
-        width={{ sm: 200, lg: 300 }}
+        width={{ sm: 100, lg: 200 }}
       >
-        {/*<MantineNavbar.Section>{navbar}</MantineNavbar.Section>*/}
-
-        {/* First section with normal height (depends on section content) */}
-        <MantineNavbar.Section>First section</MantineNavbar.Section>
-
-        {/* Grow section will take all available space that is not taken by first and last sections */}
-        <MantineNavbar.Section grow>Grow section</MantineNavbar.Section>
+        <MantineNavbar.Section className={classes.navbar} grow>
+          {navbar}
+        </MantineNavbar.Section>
 
         {/* Last section with normal height (depends on section content) */}
         <MantineNavbar.Section>Last section</MantineNavbar.Section>

@@ -1,4 +1,4 @@
-import { rem, createStyles } from "@mantine/core";
+import { rem, createStyles, Tooltip, Box } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { LinkItemProps } from "./module";
 
@@ -9,10 +9,9 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     display: "block",
     textDecoration: "none",
-    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
-    paddingLeft: rem(31),
-    marginLeft: rem(30),
-    fontSize: theme.fontSizes.sm,
+    padding: theme.spacing.md,
+    fontSize: theme.fontSizes.md,
+    textAlign: "center",
     color:
       theme.colorScheme === "dark"
         ? theme.colors.dark[0]
@@ -31,24 +30,37 @@ const useStyles = createStyles((theme) => ({
     borderLeft: `${rem(1)} solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
     }`,
+    marginLeft: rem(30),
   },
 }));
 
 export const LinkItem: React.FC<LinkItemProps> = ({
   title,
+  to,
+  tooltip,
   // breadcrumbs,
-  // caption,
   // icon,
   // onClick,
-  to,
   // target,
 }) => {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
-  return (
+  const link = (
     // <Link style={{ margin: "24px" }} to={to}>
     <Link className={classes.link} to={to}>
       {title}
     </Link>
+  );
+
+  return (
+    <>
+      {tooltip != undefined ? (
+        <Tooltip label={tooltip} position={"right"}>
+          {link}
+        </Tooltip>
+      ) : (
+        link
+      )}
+    </>
   );
 };
