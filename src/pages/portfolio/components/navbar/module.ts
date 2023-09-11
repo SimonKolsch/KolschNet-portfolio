@@ -1,4 +1,4 @@
-import { LinkItemProps } from "./link/module";
+import { LinkItemProps } from "./link";
 
 export interface NavbarProps {
   opened: boolean;

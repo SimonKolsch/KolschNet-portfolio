@@ -1,10 +1,7 @@
 import React from "react";
 import { createStyles, Navbar as MantineNavbar } from "@mantine/core";
 import { ItemProps, ItemType, NavbarProps } from "./module";
-import { LinkItem } from "./link";
-
-export * from "./module";
-export * from "./link";
+import {LinkItem} from "./link";
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -39,8 +36,8 @@ export const Navbar: React.FC<NavbarProps> = ({ opened, items }) => {
 
 const getNavItem = (item: ItemProps): React.ReactNode => {
   switch (item.type) {
-    default:
     case ItemType.LinkItem:
+    default:
       if (item?.linkItem == null) {
         console.log("No item for item type");
         break;

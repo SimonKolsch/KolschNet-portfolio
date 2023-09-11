@@ -1,11 +1,13 @@
-import { MouseEventHandler } from "react";
+import React from "react";
+import {LinkProps} from "react-router-dom";
 
-export interface LinkItemProps {
+export interface ApiLinkProps extends LinkProps {
+  id: string
   title: string;
-  to: string;
   tooltip?: string;
-  // breadcrumbs?: boolean;
-  // target?: boolean;
-  // icon: React.ReactNode | "none" | "default";
-  // onClick?: MouseEventHandler | undefined;
+}
+
+export interface LinkItemProps extends ApiLinkProps {
+  active: string;
+  setActive:  React.Dispatch<React.SetStateAction<string>>;
 }

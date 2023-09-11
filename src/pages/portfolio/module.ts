@@ -1,41 +1,40 @@
 import { json, LoaderFunctionArgs } from "react-router-dom";
-import { ItemProps, ItemType } from "./components/navbar/module";
+import {ApiLinkProps} from "./components";
 
 export interface PortfolioLoaderProps {
-  navigation: ItemProps[];
+  navigation: ApiLinkProps[];
 }
 
 export function portfolioLoader({ request, params }: LoaderFunctionArgs) {
   const data: PortfolioLoaderProps = {
     navigation: [
       {
-        type: ItemType.LinkItem,
-        linkItem: {
-          title: "LinkItem 1",
-          to: "me",
-          tooltip: "Hello There!",
+        id: "finallyHome",
+        title: "Home",
+        to: {
+          pathname: "/portfolio",
+          hash: "#home"
         },
+        preventScrollReset: true
       },
       {
-        type: ItemType.LinkItem,
-        linkItem: {
-          title: "LinkItem 2",
-          to: "",
+        id: "finallyMe",
+        title: "Mee",
+        to: {
+          pathname: "/portfolio",
+          hash: "#me"
         },
+        tooltip: "Hello There!",
+        preventScrollReset: true
       },
       {
-        type: ItemType.LinkItem,
-        linkItem: {
-          title: "LinkItem 3",
-          to: "",
+        id: "finallyResume",
+        title: "Resume",
+        to: {
+          pathname: "/portfolio",
+          hash: "#resume"
         },
-      },
-      {
-        type: ItemType.LinkItem,
-        linkItem: {
-          title: "LinkItem 4",
-          to: "",
-        },
+        preventScrollReset: true
       },
     ],
   };

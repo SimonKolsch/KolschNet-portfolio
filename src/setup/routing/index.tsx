@@ -1,24 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Portfolio, portfolioLoader, Resume, Thatsme } from "../../pages";
+import {createBrowserRouter, redirect} from "react-router-dom";
+import { Portfolio, portfolioLoader} from "../../pages";
 
 export const router = createBrowserRouter([
   {
-    path: "",
+    path: "/",
+    loader: async () => {return redirect("/portfolio");}
+  },
+  {
+    path: "/portfolio",
     loader: portfolioLoader,
     element: <Portfolio />,
-    children: [
-      {
-        path: "",
-        element: <>Welcome in Portfolio</>,
-      },
-      {
-        path: "me",
-        element: <Thatsme />,
-      },
-      {
-        path: "resume",
-        element: <Resume />,
-      },
-    ],
   },
 ]);
