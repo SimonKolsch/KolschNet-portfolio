@@ -1,0 +1,10 @@
+.inner {
+  justify-content: center;
+  display: flex;
+  height: rem(70px);
+}
+
+.links {
+  width: 300px;
+  justify-content: center;
+}

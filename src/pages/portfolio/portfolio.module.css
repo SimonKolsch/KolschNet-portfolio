@@ -1,0 +1,16 @@
+:root {
+  --app-shell-header-height: 70px
+}
+
+.base {
+  min-height: calc(100dvh - var(--app-shell-header-height, 0px));
+  padding: 2rem;
+}
+
+.mid {
+  border: 1px green solid;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}

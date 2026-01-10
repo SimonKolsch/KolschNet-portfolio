@@ -2,7 +2,6 @@ import { LinkItemProps } from "./link";
 
 export interface NavbarProps {
   opened: boolean;
-
   items: ItemProps[];
 }
 

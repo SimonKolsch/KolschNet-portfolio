@@ -1,12 +1,22 @@
 import React from "react";
-import {Text} from "@mantine/core";
-
+import {Box} from "@mantine/core";
+import classes from "./thatsme.module.css";
 
 export const Thatsme: React.FC = (props) => {
 
   return (
     <React.Fragment>
-        <Text>That's Me</Text>
+      <Box className={classes.wrapper}>
+        <Box>
+          Bild
+        </Box>
+        <Box>
+          Thats Me!
+        </Box>
+      </Box>
+      <Box>
+        Swipe
+      </Box>
     </React.Fragment>
   );
 };
